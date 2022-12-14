@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- link font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <!-- my style css -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>Lista Anime</title>
+</head>
+<body>
+    <header>
+
+        <!-- titolo della pagina -->
+        <div class="title">
+                <h1>Film:)</h1>
+        </div>
+
+    </header>
+
+    <!-- main -->
+    <main>
+        <!-- container -->
+        <div id="myapp" class="container">
+            <div class="new__film">
+                <input type="text" placeholder="Nome film..." v-model="newFilm.title" @KeyUp.enter="addFilm">
+                <div class="button" @click="addFilm">Aggiungi</div>
+            </div>
+
+            <!-- messaggio di errore -->
+            <p class="error" v-if="error">errore non hai inserito niente nella pagina, scrivi un film!</p>
+
+            <div class="Film__list">
+                <ul v-if="listFilm.length > 0">
+                    <li class="film" v-for="(film, i) in listFilm">
+                        {{film.title}}
+                        <!-- contenitore tasto -->
+                        <div>
+                            <i class="fa-regular fa-circle-xmark" @click="removeFilm(i)"></i>
+                        </div>
+                    </li>
+                </ul>
+        </div>
+
+    </main>
+
+
+    <!-- vuejs -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- my script js -->
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
